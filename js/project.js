@@ -32,20 +32,54 @@ $(document).ready(function(){
  //  });
 // });
 
-	$(".ipsum").click(function() {
-			var navBarSrc = $(this).attr(".current");
-			$("#submit").attr(".ipsum","navBarSrc");
-			$(this).css({
-				"color" : "red",
-			});
+//	$(".ipsum").click(function() {
+	//		$(this).attr(".current","a");
+//			$("#submit").attr(".ipsum","navBarSrc");
+//				$(this).css({
+				
+	// });
+ 
+//$("nav").click(function() {
+//        $(this).attr(".current","a");
+//    });
 
-			});
-	 });
+//$(".current").attr("a",".current");
 
 
+//	$("nav").mouseover(function(){
+//		$(this).css({
+//			"height": "100",
+//			"color" : "red"
+//		});
+//		$(this).animate({
+//			"font-size" : "100px"
+//		})
+//	});
+
+		$("nav a").click(function() {
+    		$("nav a").removeClass("current");
+		    $(this).addClass("current");
+		   
+		});
+
+		$("button").click(function(){
+			$(".ipsum").slideDown("p");
+			$("p").slideDown();
+
+		});
+
+		$("button").click(function(){
+			$("p").slideUp();
+
+		});
 
 
-	
+ });
+// click bacon 
+// show corresponding bacon ipsum  
+// click hipster
+// hide bacon ipsum
+// show hipster ipsum
 
 
 
