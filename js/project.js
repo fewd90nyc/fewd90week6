@@ -1,89 +1,20 @@
-// click on an a tag, set that a tag to 'current'
-// get that ipsum ('lorem')
-
-// click generate btn
-// get current ipsum
-
-
-// css selectors: .current { color: yellow }
-// jQuery selector: $('.current').attr('data-ipsum');
-// var ipsumType = $('.current').attr('data-ipsum');
-// $('#' + ipsumType).css({'display: block'});
-
-// get the element that matches that ipsum
-// set that element to display block
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var triggerNodeList = document.querySelectorAll('nav a');
+var inputElement = document.querySelector('#paragraphs');
+var submitElement = document.querySelector('#submit');
+var contentElement = document.querySelector('#js-content');
 
 function generateContent() {
 
     var currentIpsum = document.querySelector('a.current').dataset.ipsum;
+    var numberOfParagraphs = inputElement.value > 0 ? inputElement.value : 5;
 
-    if (!data[currentIpsum]) {
-        alert('Data does not exist');
-        return false;
+    if (currentIpsum == 'bacon') {
+        requestBaconIpsum(numberOfParagraphs).then(function(response) {
+            setContent(response);
+        });
+    } else {
+        setContent(data[currentIpsum].slice(0, numberOfParagraphs).join(''));
     }
-
-    var numberOfParagraphs = document.querySelector('#paragraphs').value;
-    var indexToRemove = 0;
-    var numberToRemove = 1;
-
-
-
-    var currentData = data[currentIpsum];
-    // var dataLength = currentData.length;
-    // currentData.splice(numberOfParagraphs, currentData.length - numberOfParagraphs);
-    console.log(currentData);
-
-
-
-    var htmlContent = data[currentIpsum].join('');
-    document.querySelector('#js-content').innerHTML = htmlContent;
 }
 
 function setAsActive() {
@@ -92,10 +23,28 @@ function setAsActive() {
         triggerNodeList[i].classList.remove(activeClass);
     }
     this.classList.add(activeClass);
+    resetInputValue();
+}
+
+function resetInputValue() {
+    inputElement.value = '';
+    contentElement.innerHTML = '';
+}
+
+function requestBaconIpsum(numberOfParagraphs) {
+    return $.ajax({
+        method: 'POST',
+        url: 'https://baconipsum.com/api/?type=all-meat&paras=' + numberOfParagraphs + '&start-with-lorem=1&format=html',
+    });
+}
+
+function setContent(html) {
+    contentElement.innerHTML = html;
 }
 
 for (var i = 0; i < triggerNodeList.length; i++) {
     triggerNodeList[i].onclick = setAsActive;
 }
 
-document.querySelector('#submit').onclick = generateContent;
+inputElement.onfocus = resetInputValue;
+submitElement.onclick = generateContent;
