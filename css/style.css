@@ -52,6 +52,11 @@ nav a.current {
   display: none;
 }
 
+p {
+  padding-bottom: 14px;
+  display: none;
+}
+
 #form {
   margin: 20px 0;
   overflow: hidden;
@@ -75,13 +80,4 @@ input {
 
 button {
   background-color: #cccccc;
-}
-
-#js-content {
-    color: white;
-    font-size: 1rem;
-}
-
-#js-content p {
-    margin: 1rem;
 }
