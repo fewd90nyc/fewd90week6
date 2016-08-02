@@ -49,12 +49,12 @@ nav a.current {
 .ipsum {
   background-color: #FFFFFF;
   padding: 40px;
-  display: none;
+ /* display: none;*/
 }
 
 p {
   padding-bottom: 14px;
-  display: none;
+ /* display: none;*/
 }
 
 #form {

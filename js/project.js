@@ -1,4 +1,21 @@
 $(document).ready(function(){
+	
+		$("nav a").click(function() {
+    		$("nav a.current").removeClass("current");
+		    $(this).addClass("current");		   
+		})
+
+		$('#submit').click(function(){
+			var ipsumType = $('nav a.current').attr('data-ipsum');
+			$('#' + ipsumType).slideDown();
+			var numParagraphs = $('#paragraphs').val();
+			console.log(numParagraphs)
+		});
+
+		$('#paragraphs').focus(function(){
+			$('.ipsum').slideUp();
+		});
+});
 //	$("nav").click(function(){
 // 		$(".current").hover(function(){
 //			 var current = $(this).attr("data-ipsum");
@@ -56,25 +73,33 @@ $(document).ready(function(){
 //		})
 //	});
 
-		$("nav a").click(function() {
-    		$("nav a").removeClass("current");
-		    $(this).addClass("current");
-		   
-		});
-
-		$("button").click(function(){
-			$(".ipsum").slideDown("p");
-			$("p").slideDown();
-
-		});
-
-		$("button").click(function(){
-			$("p").slideUp();
-
-		});
 
 
- });
+		//$("button").click(function() {
+//			$(".ipsum").slideDown("p");
+//			$("p").slideDown();
+			//$(".ipsum").slideToggle(400);
+			//$("p").slideToggle(400);
+		//});
+
+		//$("button").click(function(){
+		//	$("#form").remove("p");
+		 //});
+
+	//	$("button").click(function(){
+	//		$("input text").remove("paragraphs");
+	//	});
+
+	//	$("button").click(function(){
+	//		$("p").slideUp();
+
+		//});
+		//$('#submit').click(function(){
+		//	alert('IT WORKS')
+		//});
+
+		//get the data value of selected nav item
+
 // click bacon 
 // show corresponding bacon ipsum  
 // click hipster
