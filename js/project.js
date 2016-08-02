@@ -2,7 +2,7 @@ $(document).ready(function(){
 	
 		$("nav a").click(function() {
     		$("nav a.current").removeClass("current");
-		    $(this).addClass("current");		   
+		    $(this).addClass("current");	   
 		})
 
 		$('#submit').click(function(){
@@ -10,10 +10,14 @@ $(document).ready(function(){
 			$('#' + ipsumType).slideDown();
 			var numParagraphs = $('#paragraphs').val();
 			console.log(numParagraphs)
+			console.log(ipsumType)
 		});
 
 		$('#paragraphs').focus(function(){
 			$('.ipsum').slideUp();
+
+			$('#paragraphs').slice( 0, numParagraphs);
+			console.log('#paragraphs')
 		});
 });
 //	$("nav").click(function(){
