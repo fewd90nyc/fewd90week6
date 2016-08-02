@@ -11,13 +11,13 @@ $(document).ready(function(){
 			var numParagraphs = $('#paragraphs').val();
 			console.log(numParagraphs)
 			console.log(ipsumType)
+		//	$('#paragraphs').slice( 0, numParagraphs);
+		$('#paragraphs').slice( 0, numParagraphs).css({'display':'block'});
+			
 		});
 
 		$('#paragraphs').focus(function(){
 			$('.ipsum').slideUp();
-
-			$('#paragraphs').slice( 0, numParagraphs);
-			console.log('#paragraphs')
 		});
 });
 //	$("nav").click(function(){
