@@ -16,17 +16,28 @@ From the repository homepage (which will be http://github.com/YOURUSERNAME/fewd9
 
 There are three events that need to be defined: 
 
-When the user clicks on a nav anchor:
-
-- The item the user clicked on should be selected (the class `.current` can be applied).
+DONE - When the user clicks on a nav anchor:
+		- The item the user clicked on should be selected (the class `.current` can be applied).
 
 When the user hits the Generate button:
-
 - The specified number of paragraphs of the selected ipsum should be revealed with a sliding animation.
 
-When the user clicks or tabs into the form field: 
+button.click -> stores #paragraphs as slice variable
+-> grabs and stores .current data-ipsum value
+$("#submit").click(function(){
+	var paragraphs = 
+	var ipsum = 
+})
+$("div").toggle().slice().slideDown()
+.slice().slideDown(2000)
 
+When the user clicks or tabs into the form field: 
 - The field should clear and the revealed ipsum should disappear with a sliding animation.
+
+				$("input").focus(function(){
+				    $("div").toggle("display").slideUp(2000);
+				});
+
 
 You will likely need to use all of the following jQuery functions: `.click(), .focus(), .removeClass(), .addClass(), .data(), .slice(), .find(), .hide(), .slideDown(), .slideUp()`. Check the jQuery documentation for what each of these do: https://api.jquery.com/
 
